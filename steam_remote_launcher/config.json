@@ -1,0 +1,26 @@
+{
+    "remote_machines": [
+        {
+            "host": "192.168.1.101",
+            "port": 22,
+            "username": "steamuser",
+            "ssh_key_path": "/path/to/id_rsa",
+            "os_type": "linux",
+            "steam_exe_path": "/usr/bin/steam",
+            "steamcmd_exe_path": "/home/steamuser/steamcmd/steamcmd.sh"
+        },
+        {
+            "host": "another.example.com",
+            "port": 2222,
+            "username": "anotheruser",
+            "ssh_key_path": null,
+            "os_type": "windows",
+            "steam_exe_path": "C:\\Program Files (x86)\\Steam\\steam.exe",
+            "steamcmd_exe_path": "C:\\steamcmd\\steamcmd.exe"
+        }
+    ],
+    "game_app_ids": [
+        730,
+        440
+    ]
+}

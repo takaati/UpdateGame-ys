@@ -1,0 +1,35 @@
+2025-05-29 16:54:28,726 - SteamRemoteLauncher - INFO - Attempting to load configuration from: /app/steam_remote_launcher/config.json
+2025-05-29 16:54:28,727 - SteamRemoteLauncher.ConfigManager - INFO - Configuration file '/app/steam_remote_launcher/config.json' loaded and validated successfully.
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - INFO - Configuration loaded successfully.
+
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - INFO - --- Steam Credentials ---
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - WARNING - EOFError encountered during interactive input. Falling back to hardcoded credentials for testing.
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - INFO - Steam username (hardcoded for testing): testuser_ci
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - INFO - Steam password (hardcoded for testing): [hidden]
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - INFO - Steam credentials obtained.
+
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - INFO - --- Processing machine: steamuser@192.168.1.101 ---
+2025-05-29 16:54:28,727 - SteamRemoteLauncher - INFO - Attempting SSH connection to steamuser@192.168.1.101:22...
+2025-05-29 16:54:28,727 - SteamRemoteLauncher.RemoteOps - INFO - Attempting to connect to steamuser@192.168.1.101:22...
+2025-05-29 16:54:28,727 - SteamRemoteLauncher.RemoteOps - INFO - Using SSH key: /path/to/id_rsa
+2025-05-29 16:54:38,740 - SteamRemoteLauncher.RemoteOps - ERROR - Connection timed out when connecting to 192.168.1.101.
+2025-05-29 16:54:38,740 - SteamRemoteLauncher - ERROR - Failed to connect to 192.168.1.101 via SSH. Skipping this machine.
+
+2025-05-29 16:54:38,741 - SteamRemoteLauncher - INFO - --- Processing machine: anotheruser@another.example.com ---
+2025-05-29 16:54:38,741 - SteamRemoteLauncher - INFO - Attempting SSH connection to anotheruser@another.example.com:2222...
+2025-05-29 16:54:38,741 - SteamRemoteLauncher.RemoteOps - INFO - Attempting to connect to anotheruser@another.example.com:2222...
+2025-05-29 16:54:38,741 - SteamRemoteLauncher.RemoteOps - INFO - Attempting connection with available SSH agent or default keys...
+2025-05-29 16:54:38,774 - SteamRemoteLauncher.RemoteOps - ERROR - An unexpected error occurred when connecting to another.example.com: [Errno -2] Name or service not known
+Traceback (most recent call last):
+  File "/app/steam_remote_launcher/remote_operations.py", line 27, in connect_ssh
+    client.connect(hostname, port=port, username=username, timeout=10)
+  File "/home/swebot/.local/lib/python3.10/site-packages/paramiko/client.py", line 377, in connect
+    to_try = list(self._families_and_addresses(hostname, port))
+  File "/home/swebot/.local/lib/python3.10/site-packages/paramiko/client.py", line 202, in _families_and_addresses
+    addrinfos = socket.getaddrinfo(
+  File "/usr/lib/python3.10/socket.py", line 967, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+2025-05-29 16:54:38,781 - SteamRemoteLauncher - ERROR - Failed to connect to another.example.com via SSH. Skipping this machine.
+
+2025-05-29 16:54:38,781 - SteamRemoteLauncher - INFO - All configured machines processed. Exiting application.
